@@ -43,6 +43,9 @@ let ChatMessage = require('./ChatMessage.vue');
 .chat-log .chat-message:nth-child(even) {
     background-color:#eee;
 }
+.chat-log .chat-message:nth-child(odd) {
+    background-color:#f7f5f5;
+}
 
 .empty  {
     padding: 1rem;

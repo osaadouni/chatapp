@@ -54,14 +54,10 @@ let ChatComposer = require('./ChatComposer.vue');
                         created_at: e.message.created_at
                     });
 
-                })
+                /*})
                 .listenForWhisper('typing', (e) => {
-                    //console.log(e.name);
-                    if ( e.name !== '' ) {
-                    console.log('typing...');
-                    } else {
-                        console.log('nothing..');
-                    }
+                    console.log(e.name);
+                */
                 });
             
         },

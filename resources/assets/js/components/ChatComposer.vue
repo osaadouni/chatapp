@@ -27,6 +27,21 @@
             }
         }, 
 
+        watch: { 
+
+            messageText(val) { 
+
+                console.log('messageText('+val+')');
+
+                Echo.private('chatroom')
+                    .whisper('typing', {
+                        name: val 
+                    });
+
+            }
+        }, 
+
+
         mounted() {
             console.log('Component mounted.')
         }, 

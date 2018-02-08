@@ -52504,10 +52504,13 @@ var ChatComposer = __webpack_require__(58);
                 user: e.user,
                 created_at: e.message.created_at
             });
-        }).whisper('typing', {
-            name: 'john doe'
         }).listenForWhisper('typing', function (e) {
-            console.log(e.name);
+            //console.log(e.name);
+            if (e.name !== '') {
+                console.log('typing...');
+            } else {
+                console.log('nothing..');
+            }
         });
     },
     created: function created() {
@@ -52655,7 +52658,7 @@ exports = module.exports = __webpack_require__(12)(false);
 
 
 // module
-exports.push([module.i, "\n.chat-log .chat-message {\n    margin-top:20px;\n}\n.chat-log .chat-message:nth-child(even) {\n    background-color:#eee;\n}\n.empty  {\n    padding: 1rem;\n\n    text-align: center;\n}\n\n", ""]);
+exports.push([module.i, "\n.chat-log .chat-message {\n    margin-top:20px;\n}\n.chat-log .chat-message:nth-child(even) {\n    background-color:#eee;\n}\n.chat-log .chat-message:nth-child(odd) {\n    background-color:#f7f5f5;\n}\n.empty  {\n    padding: 1rem;\n\n    text-align: center;\n}\n\n", ""]);
 
 // exports
 
@@ -53013,6 +53016,19 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             authenticated: false
         };
     },
+
+
+    watch: {
+        messageText: function messageText(val) {
+
+            console.log('messageText(' + val + ')');
+
+            Echo.private('chatroom').whisper('typing', {
+                name: val
+            });
+        }
+    },
+
     mounted: function mounted() {
         console.log('Component mounted.');
     },
