@@ -41,7 +41,9 @@ class ChatController extends Controller
         ]);
 
 
-        event(new ChatEvent($message, $user));
+        //event(new ChatEvent($message, $user));
+        broadcast(new ChatEvent($message, $user)); // same as event()
+        //broadcast(new ChatEvent($message, $user))->toOthers(); // exclude current user
     }
 
 

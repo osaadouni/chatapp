@@ -52504,6 +52504,10 @@ var ChatComposer = __webpack_require__(58);
                 user: e.user,
                 created_at: e.message.created_at
             });
+        }).whisper('typing', {
+            name: 'john doe'
+        }).listenForWhisper('typing', function (e) {
+            console.log(e.name);
         });
     },
     created: function created() {

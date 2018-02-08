@@ -54,6 +54,13 @@ let ChatComposer = require('./ChatComposer.vue');
                         user:    e.user ,
                         created_at: e.message.created_at
                     });
+
+                })
+                .whisper('typing', {
+                    name: 'john doe'
+                })
+                .listenForWhisper('typing', (e) => {
+                    console.log(e.name);
                 });
             
         },
